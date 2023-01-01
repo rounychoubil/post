@@ -1,9 +1,10 @@
 {% extends "base.html" %}
-{% block content %}
+{% block containt %}
 <h2> log in </h2>
-<form method = "POST"> {% crf_token %}
-{{ form.as_p }}
+<form method = "POST"> 
+    {% csrf_token %}
+    {{ form.as_p }}
 <button type="submit"> LOG IN</button>
 </form>
 
-{% endblock content %}
+{% endblock containt %}
