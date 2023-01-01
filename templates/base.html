@@ -14,13 +14,14 @@
                     Post Blog
                 </a></h1>
             </div>
-            <div class="nav-right">
-                <h1><a href="{% url 'post_new' %}">
-                    New Post
-                </a></h1>
-            </div>
-        </header>
+           
         {% if user.is_authenticated %}
+        <div class="nav-right">
+            <h1><a href="{% url 'post_new' %}">
+                New Post
+            </a></h1>
+        </div>
+    </header>
             <p> Bien Venue {{ user.username }}!!</p>
             <p><a href="{% url 'logout' %}"> LOG OUT </a>
         {% else %}
