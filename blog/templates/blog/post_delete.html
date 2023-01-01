@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+{% block title %} {{ post.title }}/post_{{ post.id }}{% endblock title %}
+{% block containt %}
+    <form method="POST">
+        {% csrf_token %}
+        <p>Etes vous sure de vouloir la publication <b>{{post.title}}</b></p>
+         en date du <br>{{post.publication_date}}<hr>
+        <button type = "submit">Delete</button>
+    </form>
+{% endblock containt %}

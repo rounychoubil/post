@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% block containt %}
+<p>{{ post.title}}</p>
+<p>{{ post.articles}}<p/>
+{% if post.statut == "Private" %}
+    Cette publication privé
+{% else %}
+    Cette publication est publique
+{% endif %}
+<hr>
+<a href="{% url 'post_delete' post.pk %}">Effacer</a> | 
+<a href="{% url 'post_update' post.pk %}">Mettre a jour</a>
+
+{% endblock containt %}

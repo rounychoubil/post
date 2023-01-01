@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% block containt %}
+
+{% for post in post_list %}
+<p> {{ post.publication_date }}
+<h1> {{ post.title}} <h1>
+<p> {{ post.articles }} <h1>
+    <hr><a href="{% url 'post_delete' post.pk %}">Effacer</a> | 
+    <a href="{% url 'post_update' post.pk %}">Mettre a jour</a>
+    {% endfor %}
+
+{% endblock containt %}
