@@ -125,7 +125,10 @@ STATIC_URL = 'static/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-#ajout local
+#ajout local 
+# user definition
 AUTH_USER_MODEL = "account.CustomUser"
 LOGIN_REDIRECT_URL = "home"
 LOGOUT_REDIRECT_URL = "home"
+#reset pass word
+EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
