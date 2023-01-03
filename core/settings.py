@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     # local app
     'account.apps.AccountConfig',
     'blog.apps.BlogConfig',
+    'django_extensions',
 ]
 
 MIDDLEWARE = [
@@ -119,6 +120,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.1/howto/static-files/
 
 STATIC_URL = 'static/'
+STATICFILES_DIRS = [BASE_DIR / "static"]
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
@@ -132,3 +134,8 @@ LOGIN_REDIRECT_URL = "home"
 LOGOUT_REDIRECT_URL = "home"
 #reset pass word
 EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
+ 
+GRAPH_MODELS = {
+  'all_applications': True,
+  'group_models': True,
+}

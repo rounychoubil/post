@@ -1,36 +1,39 @@
-<!doctype html>
-<html lang="fr">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>{% block title %}{% endblock title %}</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
-  </head>
-  <body>
-    <div>
-        <header>
-            <div class="nav-left">
-                <h1><a href="{% url 'home' %}">
-                    Post Blog
-                </a></h1>
-            </div>
-           
-        {% if user.is_authenticated %}
-        <div class="nav-right">
-            <h1><a href="{% url 'post_new' %}">
-                New Post
-            </a></h1>
-        </div>
-    </header>
-            <p> Bien Venue {{ user.username }}!!</p>
-            <p><a href="{% url 'logout' %}"> LOG OUT </a>
-        {% else %}
-            <p> Veillez vous connecter SVP!!</p>
-            <a href="{% url 'login' %}">LOG IN</a> | <a href="{% url 'signup' %}">SING UP</a>
-        {% endif %}
-        {% block containt %}
-        {% endblock containt %}
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+{% load static %}
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>*FLORAL*</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<link href="{% static 'css/base.css' %}" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="container">
+  <div id="banner">
+    <h1>Vemi Blog Poste</h1>
+  </div>
+  <div id="navcontainer">
+    <ul id="navlist">
+      <li><a href="{% url 'home' %}">HOMEPAGE</a></li>
+      <li >  </li>
+      
+      
+  {% if user.is_authenticated %}
+      <li><a href="{% url 'post_new' %}">Nouvelle Publication</a></li>
+      <li><a href="{% url 'logout' %}">LOG OUT</a></li>
+      {% else %}
+      <li><a href="{% url 'signup' %}">SIG UP</a></li>
+      <li><a href="{% url 'login' %}">LOG IN</a></li>
+    </ul>
+  </div>
+  {% endif %}
+  {% block containt %}
+  
+  {% endblock containt %}
+  <div id="container-foot">
+    <div id="footer">
+      <p><a href="{% url 'home' %}">homepage</a> | <a href="mailto:denise@mitchinson.net">contact</a> | &copy; 2023 Anyone | Design by <a href="http://www.mitchinson.net"> www.mitchinson.net</a> | Licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/3.0/">Creative Commons Attribution 3.0 License</a></p>
     </div>
+  </div>
+</div>
 </body>
 </html>

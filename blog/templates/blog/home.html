@@ -1,12 +1,24 @@
 {% extends 'base.html' %}
 {% block containt %}
 
-{% for post in post_list %}
-<p> {{ post.publication_date }}
-<h1> {{ post.title}} <h1>
-<p> {{ post.articles }} <h1>
-    <hr><a href="{% url 'post_delete' post.pk %}">Effacer</a> | 
-    <a href="{% url 'post_update' post.pk %}">Mettre a jour</a>
-    {% endfor %}
+{% load static %}
+  
+    
+<div id="content">
+    <h2>Welcome to <span style="color:#B29B35;"> Floral</span> Template</h2>
+    <blockquote>This template has been tested in Mozilla and IE7. The page validates as XHTML 1.0 Transitional using valid CSS.<br />
+      For more FREE templates visit <a href="http://www.mitchinson.net">my website</a>.</blockquote>
+    <p>Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
 
+    {% for post in post_list %}
+    {% if post.status == "Publique" %}
+    <h2>A{{ post.title}}</h2>
+    <p class="info"><img class="noborder" src="{% static 'img/flower.jpg' %}" alt="flower" title="flower"/>
+        {{ post.articles }}</p>
+    
+    <p class="post"> <a href="{% url 'post_delete' post.pk %}">Effacer</a> <a href="{% url 'post_update' post.pk %}">Mettre a jour</a> 
+        <span class="date">{{ post.publication_date }}</span> </p>
+        {% endif %}
+  </div>
+  {% endfor %}
 {% endblock containt %}
