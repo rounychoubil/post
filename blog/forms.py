@@ -1,6 +1,6 @@
 from django import forms
 from django.forms import ModelForm
-from .models import Post
+from .models import Post, Comment
 
 class PostForm(ModelForm):
     
@@ -17,5 +17,15 @@ class PostForm(ModelForm):
             "articles": forms.Textarea(attrs={'class':"form-control"}),
             "status" : forms.RadioSelect(attrs={'class':'form-check'}),
         }
+
+    
+class CommentForm(forms.ModelForm):
+    
+    class Meta:
+        model = Comment
+        fields = (
+            "author",
+            "comment",
+            )
 
     

@@ -9,8 +9,19 @@
     Cette publication est publique
 {% endif %}
 <hr>
+<p>Comentaire<p>
+    {% for comment in post.comment_set.all  %}
+    <p> {{comment.author}} &middot; {{comment}}
+    {% endfor %}
+    <h4> Ajouté un commentaire </h4>
+    <form action="", method="POST">
+        {% csrf_token %}
+        {{form.as_p}}
+        <button type="submit">save</button>
+    </form>
+<hr>
 <a href="{% url 'post_delete' post.pk %}">Effacer</a> | 
-<a href="{% url 'post_update' post.pk %}">Mettre a jour</a>
+<a href="{% url 'post_update' post.pk %}">Mettre a jour</a> | <a href= "{% url 'post_list' %}">Afficher mes articles</a>
 </div>
 
 {% endblock containt %}

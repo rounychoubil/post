@@ -3,5 +3,6 @@ crispy-bootstrap5==0.7
 Django==4.1.4
 django-crispy-forms==1.14.0
 django-extensions==3.2.1
+Pillow==9.4.0
 pygraphviz==1.10
 sqlparse==0.4.3

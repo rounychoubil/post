@@ -78,7 +78,7 @@ background : transparent url("/static/img/menu_arrow.gif") bottom center no-repe
 			/*MAIN CONTENT*/
 #content {
 padding : 10px;
-margin-left : 200px;
+margin-left : 20px;
 margin-bottom : 10px;
 color : #666;
 background : #fff;
@@ -92,6 +92,15 @@ letter-spacing : 5px;
 color : #833B0B;
 background : inherit;
 }
+#content h4 {
+	margin : 0 0 0 0;
+	font : 110% verdana, "Trebuchet MS", arial, tahoma, sans-serif;
+	padding : 5px;
+	text-transform : uppercase;
+	letter-spacing : 5px;
+	color : #45f016;
+	background : inherit;
+	}
 			/*SIDEBAR*/
 /* #sidebar {
 float : left;
@@ -101,7 +110,7 @@ padding : 10px;
 border-right : 1px solid #eee;
 color : #666;
 } */
-#sidebar a {
+/* #sidebar a {
 color : #333;
 background : inherit;
 }
@@ -118,8 +127,8 @@ border-right : 1px solid #eee;
 color : #666;
 }
 #sidebar a {
-color : #333;
-background : inherit;
+color : #333; */
+/* background : inherit;
 }
 #sidebar a:hover {
 color : #B29B35;
@@ -130,8 +139,8 @@ margin : 0 15px 0 0;
 padding : 0;
 list-style-type : square;
 color : #BC5510;
-background : inherit;
-}
+background : inherit; 
+}*/
 			/*FOOTER*/
 #footer {
 clear:both;
