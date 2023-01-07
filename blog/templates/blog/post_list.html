@@ -1,14 +1,14 @@
 {% extends 'base.html' %}
 {% block containt %}
-<div id="content">
-<p> Publication de {{user.username}}
-    {% for post in post_list %}</p>
-    <h2><p> {{post.publication_date}}</p></h2>
-    <h4><p>  {{post.title}} </p></h4>
+<h5> Publication de {{user.username}}</h5>
+<div class = "card">
+    {% for post in post_list %}
+
+    <p class = "card-header"> {{post.publication_date}}</p>
+    <h5>  {{post.title}} </h5>
     <p> {{post.articles}}</p>
-    {{ post.author}}
-    <p> <a href="{% url 'post_detail' post.pk %}">Edition</a>
+    
+    <p> <a class="btn btn-primary"href="{% url 'post_detail' post.pk %}">Edition</a>
     {% endfor %}
 
 {% endblock containt %}
-      </div>

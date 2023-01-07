@@ -1,0 +1,39 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+{% load static %}
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>*FLORAL*</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<link href="{% static 'css/base.css' %}" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="container">
+  <div id="banner">
+    <h1>Vemi Blog Poste</h1>
+  </div>
+  <div id="navcontainer">
+    <ul id="navlist">
+      <li><a href="{% url 'home' %}">HOMEPAGE</a></li>
+      <li >  </li>
+      
+      
+  {% if user.is_authenticated %}
+      <li><a href="{% url 'post_new' %}">Nouvelle Publication</a></li>
+      <li><a href="{% url 'logout' %}">LOG OUT</a></li>
+      {% else %}
+      <li><a href="{% url 'signup' %}">SIG UP</a></li>
+      <li><a href="{% url 'login' %}">LOG IN</a></li>
+    </ul>
+  </div>
+  {% endif %}
+  {% block containt %}
+  
+  {% endblock containt %}
+  <div id="container-foot">
+    <div id="footer">
+      <p><a href="{% url 'home' %}">homepage</a> | <a href="mailto:denise@mitchinson.net">contact</a> | &copy; 2023 Anyone | Design by <a href="http://www.mitchinson.net"> www.mitchinson.net</a> | Licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/3.0/">Creative Commons Attribution 3.0 License</a></p>
+    </div>
+  </div>
+</div>
+</body>
+</html> 

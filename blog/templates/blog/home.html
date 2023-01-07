@@ -1,33 +1,23 @@
-{% extends 'base2.html' %}
+{% extends 'base.html' %}
 {% block containt %}
 
 {% load static %}
-  
+ <div class="card me-4"> 
+  {% for post in post_list %}
+      
+      <p class = "card-header ">{{post.publication_date}}</p>
+      <h5>{{post.title}}</h5>
+      <p>{{post.articles}}</p>
+      <p>Publier par : {{post.author.username}}</p>
     
-<div id="content">
-    <h2>Bien venus dans <span style="color:#B29B35;"> le Blog</span> Post</h2>
-    <blockquote>This template has been tested in Mozilla and IE7. The page validates as XHTML 1.0 Transitional using valid CSS.<br />
-      For more FREE templates visit <a href="http://www.mitchinson.net">my website</a>.</blockquote>
-    
+    <a href="{% url 'post_detail' post.pk %}">commenter</a>
+      {% for comment in post.comment_set.all %}
+      <div class="card-footer ">
+        {{comment.author}} &middot; {{comment.comment}}
+      </div>
+      {% endfor %}
 
-    {% for post in post_list %}
-    {% if post.status == "Publique" %}
-    <h2>A{{ post.title}}</h2>
-    <p class="info"><img class="noborder" src="{% static 'img/flower.jpg' %}" alt="flower" title="flower"/>
-        {{ post.articles }}</p>
-        <p class="post"> 
-          {% for comment in post.comment_set.all %}
-            <p>{{ comment.author }} &#183; {{ comment }}</p>
-    
-        <hr>
-          <p class="post"> <a href="{% url 'post_delete' post.pk %}">Effacer</a> <a href="{% url 'post_update' post.pk %}">Mettre a jour</a> 
-            <span class="date">{{ post.publication_date }}</span> </p>
-            <hr>
-        {% endfor %}
-        
-      </p>
-
-        {% endif %}
-  </div>
+    <hr class="bg-danger">
   {% endfor %}
-{% endblock containt %}
+ </div>
+{% endblock  %}
