@@ -37,6 +37,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    #app tierce
+    "crispy_forms",
+    "crispy_bootstrap5",
     # local app
     'account.apps.AccountConfig',
     'blog.apps.BlogConfig',
@@ -139,3 +142,6 @@ GRAPH_MODELS = {
   'all_applications': True,
   'group_models': True,
 }
+# crispy form and crispy_boostrap5 ccss
+CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"
+CRYSPY_TEMPLATE_PACK = "bootstrap5"
