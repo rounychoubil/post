@@ -1,7 +1,9 @@
 {% extends "base.html" %}
 {% load crispy_forms_tags %}
 {% block containt %}
+
 <h2 class='text-bg-primary'> Log in </h2>
+<center>
 <div class="card form-control-lg">
     <form method = "POST"> 
         {% csrf_token %}
@@ -13,5 +15,5 @@
     </form>
     
 </div>
-
+</center>
 {% endblock containt %}

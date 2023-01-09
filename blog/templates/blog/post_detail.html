@@ -1,27 +1,29 @@
 {% extends 'base.html' %}
 {% block containt %}
-<div id="content">
-<p ><b>{{ post.title}}</b></p>
-<p>{{ post.articles}}<p/>
+<div class="card">
+<p class = "card-header text-bg-primary"><b>{{ post.title}}</b></p>
+<p class = "card-body">{{ post.articles}}<p/>
 {% if post.statut == "Private" %}
     Cette publication privé
 {% else %}
     Cette publication est publique
 {% endif %}
 <hr>
-<p>Comentaire<p>
+<p class= "text-color-primary card-header">Comentaire<p>
     {% for comment in post.comment_set.all  %}
     <p> {{comment.author}} &middot; {{comment}}
     {% endfor %}
-    <h4> Ajouté un commentaire </h4>
+    <h4 class = "text-bg-primary"> Ajouté un commentaire </h4>
     <form action="", method="POST">
         {% csrf_token %}
         {{form.as_p}}
-        <button type="submit">save</button>
+        <button class="btn btn-primary"type="submit">save</button>
     </form>
 <hr>
-<a href="{% url 'post_delete' post.pk %}">Effacer</a> | 
-<a href="{% url 'post_update' post.pk %}">Mettre a jour</a> | <a href= "{% url 'post_list' %}">Afficher mes articles</a>
 </div>
+<center>
+<a class="btn btn-outline-danger "href="{% url 'post_delete' post.pk %}">Effacer</a> | 
+<a class="btn btn-outline-success "href="{% url 'post_update' post.pk %}">Mettre a jour</a> | <a class="btn btn-outline-primary "href= "{% url 'home' %}">Affichez les artcle</a>
+</center>
 
 {% endblock containt %}

@@ -14,7 +14,7 @@ class PostForm(ModelForm):
             )
         widgets = {
             "title"  : forms.TextInput(attrs={'class':"form-control"}),
-            "articles": forms.Textarea(attrs={'class':"form-control"}),
+            "articles": forms.Textarea(attrs={'class':"form-control","rows":5}),
             "status" : forms.RadioSelect(attrs={'class':'form-check'}),
         }
 
